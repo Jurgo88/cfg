@@ -3,7 +3,7 @@ import { Config } from 'tailwindcss';
 const config: Config = {
   content: [
     './index.html',
-    './src/**/*.{vue,js,ts,jsx,tsx}', // Analyzuje tieto súbory na Tailwind triedy
+    './src/**/*.{vue,js,ts,jsx,tsx}', 
   ],
   theme: {
     extend: {
@@ -12,7 +12,7 @@ const config: Config = {
         secondary: '#9333EA', 
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Pridanie vlastného fontu
+        sans: ['Inter', 'sans-serif'],
       },
     },
   },
