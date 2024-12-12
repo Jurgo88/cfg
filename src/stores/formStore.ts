@@ -245,12 +245,12 @@ export const useFormStore = defineStore('form', {
             }
             case 3: {
                 // Turned off for development purposes
-                // this.validateIdNumber();
-                // this.validateBirthDate();
-                // this.validateIdCard();
+                this.validateIdNumber();
+                this.validateBirthDate();
+                this.validateIdCard();
                 console.log('zapiname pasy');
                 if (this.errors.idNumber || this.errors.birthDate || this.errors.idCard) {
-                    // return;
+                    return;
                 }
                 this.currentStep++;
                 break;

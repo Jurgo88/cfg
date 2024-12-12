@@ -71,14 +71,6 @@
                 <br>
             </div>
 
-            <!-- <ul v-if="data">
-                {{ data.id }}
-                {{ data.title }}
-            <li v-for="item in data" :key="item.id">
-                <strong>{{ item.title }} kokot</strong>
-                <p>{{ item.body }}</p>
-            </li>
-            </ul> -->
             <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
         </div>
     </div>

@@ -1,6 +1,8 @@
 <template>
   <div>
     <h2>4: Adresa a banka</h2>
+    <p> Vyplnte prosím Adresu a číslo účtu</p>
+    <br>
     <!-- <pre>{{ formStore.formData }}</pre> -->
     <div>
       <label for="street">Ulica:</label>

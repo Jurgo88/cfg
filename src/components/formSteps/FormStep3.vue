@@ -1,6 +1,8 @@
 <template>
   <div>
     <h2>3: Identifikácia</h2>
+    <p> Vyplnte prosím Identifikáčné údaje</p>
+    <br>
     <div>
       <label for="idNumber">Rodné číslo:</label>
       <input 

@@ -1,10 +1,22 @@
 <template>
     <div class="multistepForm">
         <div>
-            <p v-if="formStore.currentStep != totalSteps">Vyplňte prosím následujúci formulár</p>
-            <p v-else>Ďakujeme za vyplnenie formulára
-                <br> Vaše odošlete stlačením tlačidla "Odoslať formulár"
-            </p>
+            <div v-if="formStore.currentStep != totalSteps">
+                <p>
+                    Vyplňte prosím následujúci formulár
+                </p>
+                <div class="h-5 border-b-2 border-b-grey"></div>
+                <br>
+            </div>
+            <div v-else>Ďakujeme za vyplnenie formulára
+                <div class="h-5 border-b-2 border-b-grey"></div>
+                <br>
+                <p>
+                    Vaše odošlete stlačením tlačidla "Odoslať formulár"
+                </p>
+                <br> 
+            </div>
+            <hr>
         </div>
 
         
@@ -19,6 +31,9 @@
         :onNext="nextStep"
         :onPrev="prevStep"
         />
+
+        <hr>
+        <br>
 
         <div v-if="formStore.currentStep === 1" class="flex justify-end">
             <ButtonNext :onClick="nextStep"></ButtonNext>
