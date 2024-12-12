@@ -101,6 +101,12 @@ button:focus-visible {
     background-color: #242424;
     color: rgba(255, 255, 255, 0.87);
   }
+  h1 {
+    color: #fff;
+  }
+  p{
+    color: #f6f6f6;
+  }
 }
 
 @media screen and (max-width: 768px) {
