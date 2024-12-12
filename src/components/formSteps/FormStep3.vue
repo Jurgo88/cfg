@@ -43,9 +43,9 @@ const formStore = useFormStore();
 </script>
 
 <style scoped>
-input {
-  margin-bottom: 1rem;
-  width: 100%;
-  padding: 0.5rem;
-}
+  #birthDate {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+  }
 </style>
