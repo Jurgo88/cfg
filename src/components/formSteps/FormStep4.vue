@@ -5,7 +5,10 @@
     <br>
     <!-- <pre>{{ formStore.formData }}</pre> -->
     <div>
-      <label for="street">Ulica:</label>
+      <Label
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="street"
+      > Ulica</Label>
       <input 
         id="street" 
         type="text" 
@@ -15,7 +18,10 @@
       <p v-if="formStore.errors.street" class="error">{{ formStore.errors.street }}</p>
     </div>
     <div>
-      <label for="city">Mesto:</label>
+      <Label
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="city"
+      > Mesto</Label>
       <input 
         id="city" 
         type="text" 
@@ -25,7 +31,10 @@
       <p v-if="formStore.errors.city" class="error">{{ formStore.errors.city }}</p>
     </div>
     <div>
-      <label for="postalCode">PSČ:</label>
+      <Label key="postalCode"
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="postalCode"
+      > PSČ</Label>
       <input 
         id="postalCode" 
         type="text" 
@@ -35,7 +44,10 @@
       <p v-if="formStore.errors.zip" class="error">{{ formStore.errors.zip }}</p>
     </div>
     <div>
-      <label for="bankAccount">Číslo účtu:</label>
+      <Label 
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="bankAccount"
+      > Číslo účtu</Label>
       <input 
         id="bankAccount" 
         type="text" 

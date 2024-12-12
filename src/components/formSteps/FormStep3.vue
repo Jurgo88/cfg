@@ -4,7 +4,10 @@
     <p> Vyplnte prosím Identifikáčné údaje</p>
     <br>
     <div>
-      <label for="idNumber">Rodné číslo:</label>
+      <Label
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="idNumber"
+      > Rodné číslo</Label>
       <input 
         id="idNumber" 
         type="text" 
@@ -14,7 +17,10 @@
       <p v-if="formStore.errors.idNumber" class="error">{{ formStore.errors.idNumber }}</p>
     </div>
     <div>
-      <label for="birthDate">Dátum narodenia:</label>
+      <Label
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="birthDate"
+      > Dátum narodenia</Label>
       <input 
         id="birthDate" 
         type="date" 
@@ -23,7 +29,10 @@
       <p v-if="formStore.errors.birthDate" class="error">{{ formStore.errors.birthDate }}</p>
     </div>
     <div>
-      <label for="idCard">Číslo občianskeho preukazu:</label>
+      <Label
+        class="text-sm font-semibold leading-[35px] text-stone-700 dark:text-white"
+        for="idCard"
+      > Číslo občianskeho preukazu</Label>
       <input 
         id="idCard" 
         type="text" 
@@ -37,6 +46,7 @@
 
 <script setup lang="ts">
 import { useFormStore } from '../../stores/formStore';
+import { Label } from 'reka-ui';
 
 
 const formStore = useFormStore();
