@@ -1,13 +1,17 @@
 <template>
-    <div>
-        <p v-if="formStore.currentStep != totalSteps">Vyplnte prosím následujúci formulár</p>
-        <p v-else>Ďakujeme za vyplnenie formulára
-            <br> Vaše údaje boli úspešne odoslané
-        </p>
+    <div class="multistepForm">
+        <div>
+            <p v-if="formStore.currentStep != totalSteps">Vyplňte prosím následujúci formulár</p>
+            <p v-else>Ďakujeme za vyplnenie formulára
+                <br> Vaše odošlete stlačením tlačidla "Odoslať formulár"
+            </p>
+        </div>
+
         
-        <div class="progress">
+        <div class="progress w-full bg-gray-200 h-2 rounded-lg overflow-hidden">
             <div :style="{ width: `${(formStore.currentStep / totalSteps) * 100}%` }" class="progress-bar"></div>
         </div>
+        
     
         <component
         :is="currentComponent"
@@ -15,9 +19,16 @@
         :onNext="nextStep"
         :onPrev="prevStep"
         />
-    
-        <div v-if="formStore.currentStep > 1">
-            <button @click="prevStep">Späť</button>
+
+        <div v-if="formStore.currentStep === 1" class="flex justify-end">
+            <ButtonNext :onClick="nextStep"></ButtonNext>
+        </div>
+        <div v-else-if="formStore.currentStep > 1 && formStore.currentStep < totalSteps" class="flex justify-between">
+            <button class="btn buttonBack" @click="prevStep">Späť</button>
+            <ButtonNext :onClick="nextStep"></ButtonNext>
+        </div>
+        <div v-else-if="formStore.currentStep === totalSteps" class="flex justify-start">
+            <button class="btn buttonBack" @click="prevStep">Späť</button>
         </div>
     </div>
   </template>
@@ -25,6 +36,7 @@
   <script setup lang="ts">
   import { computed } from 'vue';
   import { useFormStore } from '../stores/formStore'; 
+    import ButtonNext from '../components/ButtonNext.vue';
   
  
   import FormStep1 from '../components/formSteps/FormStep1.vue';
@@ -66,15 +78,30 @@
   </script>
   
   <style scoped>
-  .progress {
-    height: 5px;
-    background: #eee;
-    margin-bottom: 20px;
-  }
-  .progress-bar {
-    height: 100%;
-    background: #4caf50;
-    transition: width 0.3s;
-  }
+    .progress {
+        height: 5px;
+        background: #eee;
+        margin-bottom: 20px;
+    }
+    .progress-bar {
+        height: 100%;
+        background: #4caf50;
+        transition: width 0.3s;
+    }
+    .buttonBack {
+        /* position: relative;
+        top: -40px;
+        min-width: 100px; */
+    }
+    .error {
+        color: red;
+        font-size: 0.9rem;
+        border: 1px solid red;
+    }
+    input {
+        margin-bottom: 1rem;
+        width: 100%;
+        padding: 0.5rem;
+    }
   </style>
   

@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>3: Identifikácia</h2>
-    <pre>{{ formStore.formData }}</pre>
     <div>
       <label for="idNumber">Rodné číslo:</label>
       <input 
@@ -31,7 +30,6 @@
       />
       <p v-if="formStore.errors.idCard" class="error">{{ formStore.errors.idCard }}</p>
     </div>
-    <button @click="handleNext">Ďalej</button>
   </div>
 </template>
 
@@ -42,21 +40,12 @@ import { useFormStore } from '../../stores/formStore';
 const formStore = useFormStore();
 
 
-const handleNext = () => {
-  // Validácia vypnutá kvoli šetreniu času pri vývoji
-  // formStore.validateIdNumber();
-  // formStore.validateBirthDate();
-  // formStore.validateIdCard();
-
-  if (!formStore.errors.idNumber && !formStore.errors.birthDate && !formStore.errors.idCard) {
-    formStore.nextStep();
-  }
-};
 </script>
 
 <style scoped>
-.error {
-  color: red;
-  font-size: 0.9rem;
+input {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.5rem;
 }
 </style>

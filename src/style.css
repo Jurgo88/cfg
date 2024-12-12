@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 a {
@@ -35,7 +36,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -52,17 +53,34 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 .card {
   padding: 2em;
 }
 
+.multistepForm input {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.multistepForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* height: 50vh; */
+}
+
 #app {
   max-width: 1280px;
+  /* min-width: 80%; */
+  width: 100%;
+  height: auto;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 @media (prefers-color-scheme: light) {
@@ -76,4 +94,21 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+
+  @media screen and (max-width: 768px) {
+    #app {
+    }
+    body {
+      /* background-color: #8f1717; */
+      place-items: flex-end;
+    }    
+  }
+
+  @media screen and (min-width: 768px) {
+    .multistepForm {
+      /* min-height: 500px; */
+      flex-direction: column;
+    }
+  }
+
 }

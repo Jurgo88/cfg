@@ -56,7 +56,7 @@ export const useFormStore = defineStore('form', {
   
     async fetchSummary() {
     try {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
             console.log('Načítané dáta:', response.data);
             return response.data;
         } catch (error) {
@@ -144,7 +144,7 @@ export const useFormStore = defineStore('form', {
     },
     validateZip() {
         const zipRegex = /^\d{5}$/;
-        if (!zipRegex.test(this.formData.zip)) {
+        if (!zipRegex.test(this.formData.zip.trim())) {
             this.errors.zip = 'Zadajte platné PSČ.';
         } else {
             this.errors.zip = '';
@@ -222,8 +222,57 @@ export const useFormStore = defineStore('form', {
 
   
 
-    nextStep() {      
-        this.currentStep++;
+    nextStep() {  
+
+        switch (this.currentStep) {
+            case 1: {
+                this.validateInvestment();
+                if (this.errors.investment) {
+                    return;
+                }
+                this.currentStep++;
+                break;
+            }
+            case 2: {
+                this.validateName();
+                this.validateEmail();
+                this.validatePhone();
+                if (this.errors.name || this.errors.email || this.errors.phone) {
+                    return;
+                }
+                this.currentStep++;
+                break;
+            }
+            case 3: {
+                // Turned off for development purposes
+                // this.validateIdNumber();
+                // this.validateBirthDate();
+                // this.validateIdCard();
+                console.log('zapiname pasy');
+                if (this.errors.idNumber || this.errors.birthDate || this.errors.idCard) {
+                    // return;
+                }
+                this.currentStep++;
+                break;
+            }
+            case 4: {
+                this.validateStreet();
+                this.validateCity();
+                this.validateZip();
+                //this.validateBankAccount();
+
+                if (this.errors.street || this.errors.city || this.errors.zip || this.errors.bankAccount) {
+                    return;
+                }
+                this.currentStep++;
+                break;
+            }
+            case 5: {
+                break;
+            }
+        }
+
+
     },
 
     previousStep() {

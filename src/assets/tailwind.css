@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --primary: #3490dc;
+        --secondary: #ffed4a;
+        --danger: #e3342f;
+    }
+  h1 {
+    @apply text-3xl font-bold text-gray-800;
+  }
+  h2 {
+    @apply text-2xl font-semibold text-gray-700;
+  }
+  h3 {
+    @apply text-xl font-medium text-gray-600;
+  }
+  p {
+    @apply text-base leading-relaxed text-gray-500;
+  }
+  ul {
+    @apply list-disc pl-5;
+  }
+  ol {
+    @apply list-decimal pl-5;
+  }
+  a {
+    @apply text-blue-600 underline hover:text-blue-800;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-4 py-2 text-white  shadow-md;
+    background-color: var(--primary);
+    min-width: 100px;
+  }
+  .error {
+    @apply text-red-500;
+    @apply border border-red-500;
+    @apply p-2;
+    @apply bg-red-100;
+    @apply my-2;
+    /* margin: 0.5rem 0; */
+    /* border: 1px solid red; */
+    /* padding: 0.5rem; */
+  }
+  
+}

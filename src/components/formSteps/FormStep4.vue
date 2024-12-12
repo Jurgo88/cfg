@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>4: Adresa a banka</h2>
-    <pre>{{ formStore.formData }}</pre>
+    <!-- <pre>{{ formStore.formData }}</pre> -->
     <div>
       <label for="street">Ulica:</label>
       <input 
@@ -32,7 +32,16 @@
       />
       <p v-if="formStore.errors.zip" class="error">{{ formStore.errors.zip }}</p>
     </div>
-    <button @click="handleNext">Odoslať</button>
+    <div>
+      <label for="bankAccount">Číslo účtu:</label>
+      <input 
+        id="bankAccount" 
+        type="text" 
+        v-model="formStore.formData.bankAccount" 
+        placeholder="Zadajte číslo účtu" 
+      />
+      <p v-if="formStore.errors.bankAccount" class="error">{{ formStore.errors.bankAccount }}</p>
+    </div>
   </div>
 </template>
 
@@ -41,17 +50,7 @@ import { useFormStore } from '../../stores/formStore';
 
 const formStore = useFormStore();
 
-const handleNext = () => {
-    formStore.validateStreet();
-    formStore.validateCity();
-    formStore.validateZip();
 
-
-  // Skontroluj, či sú všetky chyby pre tieto polia prázdne
-  if (!formStore.errors.street && !formStore.errors.city && !formStore.errors.zip) {
-    formStore.nextStep();
-  }
-};
 </script>
 
 <style scoped>
